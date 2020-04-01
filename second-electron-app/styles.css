@@ -9,6 +9,10 @@
   padding: 5px;
 }
 
+.text-box {
+  width: 75%;
+}
+
 h1 {
     color: blue;
 }
