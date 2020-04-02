@@ -14,6 +14,7 @@ btnSum.addEventListener('click', function(){
 
     const number1 = document.getElementById('number1');
     const number2 = document.getElementById('number2');
+    var arg = "Hello I am button";
 
-    ipcRenderer.send("btnSum", number2.value);
+    ipcRenderer.send("btnSum", arg);
 });
