@@ -1,9 +1,12 @@
 'use strict';
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 const path = require('path');
 const url = require('url');
+
+// Variable
+const isMac = process.platform === 'darwin' ? true : false
 
 function createWindow() {
 
@@ -11,6 +14,7 @@ function createWindow() {
     const mainWindow = new BrowserWindow({
         width: 700,
         height: 400,
+        icon: `${__dirname}/assets/icons/sum.png`,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,
@@ -27,7 +31,7 @@ function createWindow() {
     }))
 
     // Removing the Menu Bar.
-    mainWindow.setMenu(null);
+    // mainWindow.setMenu(null);
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
@@ -36,7 +40,27 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady().then(createWindow);
+app.whenReady()
+    .then(createWindow)
+    .then(() => {
+        const mainMenu = Menu.buildFromTemplate(menu)
+        Menu.setApplicationMenu(mainMenu)
+    });
+
+const menu = [
+    ...(isMac ? [{ role: 'appMenu' }] : []),
+    {
+        role: 'fileMenu',
+    },
+    {
+        label: 'Help',
+        submenu: [
+          { label: 'Welcome' },
+          { type: 'separator' },
+          { role: 'About' },
+        ],
+      }
+]
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
