@@ -3,19 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Second Electron Application!</title>
+    <title>Sum - Electron Application!</title>
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
-    <h1>Second Electron Application!</h1>
+    <h1>Sum - Electron Application!</h1>
 
     <div id="container" class="container-fluid">
 
@@ -54,7 +52,9 @@
     </div>
 
     <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+    <script src="./scripts/renderer.js"></script>
 
 </body>
 

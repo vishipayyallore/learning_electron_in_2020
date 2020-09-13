@@ -14,7 +14,7 @@ function createWindow() {
     const mainWindow = new BrowserWindow({
         width: 700,
         height: 400,
-        icon: `${__dirname}/assets/icons/sum.png`,
+        icon: `${__dirname}/src/assets/icons/sum.png`,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,
@@ -25,7 +25,7 @@ function createWindow() {
     // and load the index.html of the app.
     // mainWindow.loadFile('index.html');
     mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
+        pathname: path.join(__dirname, './src/index.html'),
         protocol: 'file:',
         slashes: true
     }))
