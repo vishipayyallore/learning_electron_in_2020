@@ -9,6 +9,6 @@
   "author": "Viswanatha Swamy",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^10.1.1"
+    "electron": "^10.1.2"
   }
 }
